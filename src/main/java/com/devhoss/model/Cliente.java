@@ -1,6 +1,8 @@
 
 package com.devhoss.model;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -11,40 +13,40 @@ public class Cliente {
 	@Id
 	@GeneratedValue
 	private int id;
-	private String nombre;
-	int edad;
-	public Cliente() {
-		// TODO Auto-generated constructor stub
-	}
-	
-	public Cliente(int id, String nombre,int edad){
-		this.id = id;
-		this.nombre = nombre;
-		this.edad = edad;
-	}
-
+	private String nombres;
+	private String apellidos;
+	private Date fechaNacimiento;
+	private int edad;
 	public int getId() {
 		return id;
 	}
-
 	public void setId(int id) {
 		this.id = id;
 	}
-
-	public String getNombre() {
-		return nombre;
+	public String getNombres() {
+		return nombres;
 	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
+	public void setNombres(String nombres) {
+		this.nombres = nombres;
 	}
-
+	public String getApellidos() {
+		return apellidos;
+	}
+	public void setApellidos(String apellidos) {
+		this.apellidos = apellidos;
+	}
+	public Date getFechaNacimiento() {
+		return fechaNacimiento;
+	}
+	public void setFechaNacimiento(Date fechaNacimiento) {
+		this.fechaNacimiento = fechaNacimiento;
+	}
 	public int getEdad() {
 		return edad;
 	}
-
 	public void setEdad(int edad) {
 		this.edad = edad;
-	}
+	}	
+	
 	
 }

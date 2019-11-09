@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 import com.devhoss.model.Cliente;
+import com.devhoss.model.ClienteKpi;
 import com.devhoss.service.IClienteService;
 
 @RestController
@@ -24,12 +25,12 @@ public class ClienteController {
 	private IClienteService iClienteService;
 
 	@GetMapping("/findall")
-	public List<Cliente> findall() {
-		return iClienteService.FindAll();
+	public ResponseEntity<List<Cliente>> findall() {
+		return ResponseEntity.ok(iClienteService.FindAll());
 	}
 	@GetMapping("/{id}")
-	public Cliente getbyid(@PathVariable int id) {
-		return iClienteService.FindById(id);
+	public ResponseEntity<Cliente> getbyid(@PathVariable int id) {
+		return ResponseEntity.ok(iClienteService.FindById(id));
 	}
 	
 	@PostMapping
@@ -38,5 +39,15 @@ public class ClienteController {
 		return new ResponseEntity<>(savedPersona,HttpStatus.CREATED);
 	}
 
+	@GetMapping("/kpideclientes")
+	public ResponseEntity<ClienteKpi> kpIdeClientes() {
+		return ResponseEntity.ok(iClienteService.kpIdeClientes());
+	}
+
+	@GetMapping("/listclientes")
+	public ResponseEntity<ClienteKpi> listClientes() {
+		return ResponseEntity.ok(iClienteService.kpIdeClientes());
+	}
+	
 	
 }

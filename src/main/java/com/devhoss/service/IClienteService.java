@@ -1,5 +1,7 @@
 package com.devhoss.service;
 import com.devhoss.model.Cliente;
+import com.devhoss.model.ClienteKpi;
+
 import java.util.List;
 import org.springframework.stereotype.Service;
 
@@ -11,5 +13,7 @@ public interface IClienteService {
 	public Cliente FindById(int id);
 
 	public Cliente Save(Cliente persona);
+	
+	public ClienteKpi kpIdeClientes();
 	
 }
