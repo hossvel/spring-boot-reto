@@ -1,26 +1,30 @@
 
 package com.devhoss.model;
 
+
 import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class Cliente {
 	
 	@Id
-	@GeneratedValue
-	private int id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	Long id;
 	private String nombres;
 	private String apellidos;
-	private Date fechaNacimiento;
+	//private timestamp fechaNacimiento;
+	 private Date nacimiento;
 	private int edad;
-	public int getId() {
+	
+	public Long getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public String getNombres() {
@@ -35,18 +39,18 @@ public class Cliente {
 	public void setApellidos(String apellidos) {
 		this.apellidos = apellidos;
 	}
-	public Date getFechaNacimiento() {
-		return fechaNacimiento;
-	}
-	public void setFechaNacimiento(Date fechaNacimiento) {
-		this.fechaNacimiento = fechaNacimiento;
-	}
 	public int getEdad() {
 		return edad;
 	}
 	public void setEdad(int edad) {
 		this.edad = edad;
-	}	
+	}
+	public Date getNacimiento() {
+		return nacimiento;
+	}
+	public void setNacimiento(Date nacimiento) {
+		this.nacimiento = nacimiento;
+	}
 	
 	
 }

@@ -46,7 +46,4 @@ public class ClienteServiceImpl implements IClienteService {
 		};
 		return respuesta;
 	}
-
-
-
 }
