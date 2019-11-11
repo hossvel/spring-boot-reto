@@ -11,7 +11,7 @@ public interface IClienteService {
 
 	public List<Cliente> FindAll();
 	
-	public Cliente FindById(int id);
+	public Cliente FindById(Long id);
 
 	public Cliente Save(Cliente persona);
 	

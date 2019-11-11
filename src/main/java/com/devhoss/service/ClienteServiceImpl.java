@@ -26,7 +26,7 @@ public class ClienteServiceImpl implements IClienteService {
 		return iClienteRepository.findAll();
 	}
 
-	public Cliente FindById(int id) {
+	public Cliente FindById(Long id) {
 		return iClienteRepository.findById(id).get();
 	}
 

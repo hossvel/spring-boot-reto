@@ -43,7 +43,7 @@ public class ClienteController {
 	
 	@ApiOperation(value = "obtiene un cliente por su id")
     @RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = "application/json")
-	public ResponseEntity<Cliente> getbyid(@PathVariable int id) {
+	public ResponseEntity<Cliente> getbyid(@PathVariable Long id) {
 		return ResponseEntity.ok(iClienteService.FindById(id));
 	}
 	
