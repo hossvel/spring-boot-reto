@@ -1,9 +1,8 @@
-FROM openjdk:8-jdk-alpine
+FROM openjdk:8u151-slim
 
-EXPOSE 8081
+EXPOSE 8080
 
-ADD spring-boot-reto.jar /spring-boot-reto.jar
-
+ADD app.jar /app.jar
 ADD wait-for-it.sh /wait-for-it.sh
 ADD start.sh /start.sh
 RUN sh -c 'chmod +x /*.sh'

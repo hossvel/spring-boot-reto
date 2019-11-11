@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.devhoss.springbootreto.SpringBootRetoApplicationTests" tests="1" skipped="0" failures="1" errors="0" timestamp="2019-11-10T19:08:36" hostname="velascoa" time="0.014">
+<testsuite name="com.devhoss.springbootreto.SpringBootRetoApplicationTests" tests="1" skipped="0" failures="1" errors="0" timestamp="2019-11-11T04:53:13" hostname="velascoa" time="0.005">
   <properties/>
-  <testcase name="contextLoads()" classname="com.devhoss.springbootreto.SpringBootRetoApplicationTests" time="0.014">
+  <testcase name="contextLoads()" classname="com.devhoss.springbootreto.SpringBootRetoApplicationTests" time="0.005">
     <failure message="java.lang.IllegalStateException: Failed to load ApplicationContext" type="java.lang.IllegalStateException">java.lang.IllegalStateException: Failed to load ApplicationContext
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:132)
 	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:123)
@@ -93,11 +93,11 @@
 	at org.gradle.internal.concurrent.ThreadFactoryImpl$ManagedThreadRunnable.run(ThreadFactoryImpl.java:55)
 	at java.lang.Thread.run(Thread.java:748)
 Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Invocation of init method failed; nested exception is org.flywaydb.core.internal.exception.FlywaySqlException: 
-Unable to obtain connection from database: El intento de conexión falló.
-------------------------------------------------------------------------
+Unable to obtain connection from database: Connection to localhost:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 SQL State  : 08001
 Error Code : 0
-Message    : El intento de conexión falló.
+Message    : Connection to localhost:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
 
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1803)
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:595)
@@ -119,11 +119,11 @@ Message    : El intento de conexión falló.
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:124)
 	... 88 more
 Caused by: org.flywaydb.core.internal.exception.FlywaySqlException: 
-Unable to obtain connection from database: El intento de conexión falló.
-------------------------------------------------------------------------
+Unable to obtain connection from database: Connection to localhost:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 SQL State  : 08001
 Error Code : 0
-Message    : El intento de conexión falló.
+Message    : Connection to localhost:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
 
 	at org.flywaydb.core.internal.jdbc.JdbcUtils.openConnection(JdbcUtils.java:60)
 	at org.flywaydb.core.internal.jdbc.JdbcConnectionFactory.&lt;init&gt;(JdbcConnectionFactory.java:80)
@@ -133,8 +133,8 @@ Message    : El intento de conexión falló.
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1862)
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1799)
 	... 105 more
-Caused by: org.postgresql.util.PSQLException: El intento de conexión falló.
-	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:292)
+Caused by: org.postgresql.util.PSQLException: Connection to localhost:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:280)
 	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:49)
 	at org.postgresql.jdbc.PgConnection.&lt;init&gt;(PgConnection.java:195)
 	at org.postgresql.Driver.makeConnection(Driver.java:458)
@@ -148,8 +148,11 @@ Caused by: org.postgresql.util.PSQLException: El intento de conexión falló.
 	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
 	at org.flywaydb.core.internal.jdbc.JdbcUtils.openConnection(JdbcUtils.java:56)
 	... 111 more
-Caused by: java.net.UnknownHostException: postgres-docker
-	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:184)
+Caused by: java.net.ConnectException: Conexión rehusada (Connection refused)
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
 	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
 	at java.net.Socket.connect(Socket.java:589)
 	at org.postgresql.core.PGStream.&lt;init&gt;(PGStream.java:75)
@@ -158,22 +161,22 @@ Caused by: java.net.UnknownHostException: postgres-docker
 	... 123 more
 </failure>
   </testcase>
-  <system-out><![CDATA[14:08:31.886 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating CacheAwareContextLoaderDelegate from class [org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate]
-14:08:31.904 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating BootstrapContext using constructor [public org.springframework.test.context.support.DefaultBootstrapContext(java.lang.Class,org.springframework.test.context.CacheAwareContextLoaderDelegate)]
-14:08:31.941 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating TestContextBootstrapper for test class [com.devhoss.springbootreto.SpringBootRetoApplicationTests] from class [org.springframework.boot.test.context.SpringBootTestContextBootstrapper]
-14:08:31.960 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.devhoss.springbootreto.SpringBootRetoApplicationTests], using SpringBootContextLoader
-14:08:31.964 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.devhoss.springbootreto.SpringBootRetoApplicationTests]: class path resource [com/devhoss/springbootreto/SpringBootRetoApplicationTests-context.xml] does not exist
-14:08:31.965 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.devhoss.springbootreto.SpringBootRetoApplicationTests]: class path resource [com/devhoss/springbootreto/SpringBootRetoApplicationTestsContext.groovy] does not exist
-14:08:31.965 [Test worker] INFO org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [com.devhoss.springbootreto.SpringBootRetoApplicationTests]: no resource found for suffixes {-context.xml, Context.groovy}.
-14:08:31.966 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.devhoss.springbootreto.SpringBootRetoApplicationTests]: SpringBootRetoApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-14:08:32.014 [Test worker] DEBUG org.springframework.test.context.support.ActiveProfilesUtils - Could not find an 'annotation declaring class' for annotation type [org.springframework.test.context.ActiveProfiles] and class [com.devhoss.springbootreto.SpringBootRetoApplicationTests]
-14:08:32.122 [Test worker] DEBUG org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider - Identified candidate component class: file [/home/hossmell/Documentos/workspace-sts/spring-boot-reto/build/classes/java/main/com/devhoss/SpringBootRetoApplication.class]
-14:08:32.124 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.devhoss.SpringBootRetoApplication for test class com.devhoss.springbootreto.SpringBootRetoApplicationTests
-14:08:32.259 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - @TestExecutionListeners is not present for class [com.devhoss.springbootreto.SpringBootRetoApplicationTests]: using defaults.
-14:08:32.260 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
-14:08:32.288 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@415698e8, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@74e352b2, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@7f017846, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@419e28a3, org.springframework.test.context.support.DirtiesContextTestExecutionListener@34fa69a0, org.springframework.test.context.transaction.TransactionalTestExecutionListener@5a62cb4f, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@2ed54b0d, org.springframework.test.context.event.EventPublishingTestExecutionListener@1ebea544, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@796e685a, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@351afc8b, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@31134406, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@5aec53e5, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@504acc5a]
-14:08:32.294 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: context [DefaultTestContext@4d98a35 testClass = SpringBootRetoApplicationTests, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@5aed1bdc testClass = SpringBootRetoApplicationTests, locations = '{}', classes = '{class com.devhoss.SpringBootRetoApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@663713a6, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@4a31ff1f, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@1a6eb4a4, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@7fb96e53], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -> true]], class annotated with @DirtiesContext [false] with mode [null].
-14:08:32.335 [Test worker] DEBUG org.springframework.test.context.support.TestPropertySourceUtils - Adding inlined properties to environment: {spring.jmx.enabled=false, org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true, server.port=-1}
+  <system-out><![CDATA[23:53:08.254 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating CacheAwareContextLoaderDelegate from class [org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate]
+23:53:08.275 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating BootstrapContext using constructor [public org.springframework.test.context.support.DefaultBootstrapContext(java.lang.Class,org.springframework.test.context.CacheAwareContextLoaderDelegate)]
+23:53:08.316 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating TestContextBootstrapper for test class [com.devhoss.springbootreto.SpringBootRetoApplicationTests] from class [org.springframework.boot.test.context.SpringBootTestContextBootstrapper]
+23:53:08.380 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.devhoss.springbootreto.SpringBootRetoApplicationTests], using SpringBootContextLoader
+23:53:08.385 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.devhoss.springbootreto.SpringBootRetoApplicationTests]: class path resource [com/devhoss/springbootreto/SpringBootRetoApplicationTests-context.xml] does not exist
+23:53:08.386 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.devhoss.springbootreto.SpringBootRetoApplicationTests]: class path resource [com/devhoss/springbootreto/SpringBootRetoApplicationTestsContext.groovy] does not exist
+23:53:08.386 [Test worker] INFO org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [com.devhoss.springbootreto.SpringBootRetoApplicationTests]: no resource found for suffixes {-context.xml, Context.groovy}.
+23:53:08.387 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.devhoss.springbootreto.SpringBootRetoApplicationTests]: SpringBootRetoApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+23:53:08.482 [Test worker] DEBUG org.springframework.test.context.support.ActiveProfilesUtils - Could not find an 'annotation declaring class' for annotation type [org.springframework.test.context.ActiveProfiles] and class [com.devhoss.springbootreto.SpringBootRetoApplicationTests]
+23:53:08.583 [Test worker] DEBUG org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider - Identified candidate component class: file [/home/hossmell/Documentos/workspace-sts/spring-boot-reto/build/classes/java/main/com/devhoss/SpringBootRetoApplication.class]
+23:53:08.585 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.devhoss.SpringBootRetoApplication for test class com.devhoss.springbootreto.SpringBootRetoApplicationTests
+23:53:08.704 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - @TestExecutionListeners is not present for class [com.devhoss.springbootreto.SpringBootRetoApplicationTests]: using defaults.
+23:53:08.705 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+23:53:08.750 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@5144c2bc, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@7528b252, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@2251b209, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@57024ef7, org.springframework.test.context.support.DirtiesContextTestExecutionListener@20a42789, org.springframework.test.context.transaction.TransactionalTestExecutionListener@10aebbed, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@3fc0920b, org.springframework.test.context.event.EventPublishingTestExecutionListener@7a7016f2, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@7be9fe5a, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@1e7d4319, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@2516da17, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@5fab9fc1, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@6b04a140]
+23:53:08.757 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: context [DefaultTestContext@194edd54 testClass = SpringBootRetoApplicationTests, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@2105d6e3 testClass = SpringBootRetoApplicationTests, locations = '{}', classes = '{class com.devhoss.SpringBootRetoApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@663713a6, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@4a31ff1f, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@1a6eb4a4, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@7fb96e53], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -> true]], class annotated with @DirtiesContext [false] with mode [null].
+23:53:08.805 [Test worker] DEBUG org.springframework.test.context.support.TestPropertySourceUtils - Adding inlined properties to environment: {spring.jmx.enabled=false, org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true, server.port=-1}
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -183,17 +186,17 @@ Caused by: java.net.UnknownHostException: postgres-docker
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::        (v2.2.1.RELEASE)
 
-2019-11-10 14:08:32.863  INFO 29350 --- [    Test worker] c.d.s.SpringBootRetoApplicationTests     : Starting SpringBootRetoApplicationTests on velascoa with PID 29350 (started by hossmell in /home/hossmell/Documentos/workspace-sts/spring-boot-reto)
-2019-11-10 14:08:32.867  INFO 29350 --- [    Test worker] c.d.s.SpringBootRetoApplicationTests     : No active profile set, falling back to default profiles: default
-2019-11-10 14:08:34.841  INFO 29350 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
-2019-11-10 14:08:34.942  INFO 29350 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 84ms. Found 1 repository interfaces.
-2019-11-10 14:08:35.779  INFO 29350 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2019-11-10 14:08:36.159  INFO 29350 --- [    Test worker] o.f.c.internal.license.VersionPrinter    : Flyway Community Edition 6.0.8 by Redgate
-2019-11-10 14:08:36.171  INFO 29350 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2019-11-10 14:08:36.310 ERROR 29350 --- [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Exception during pool initialization.
+2019-11-10 23:53:09.375  INFO 8228 --- [    Test worker] c.d.s.SpringBootRetoApplicationTests     : Starting SpringBootRetoApplicationTests on velascoa with PID 8228 (started by hossmell in /home/hossmell/Documentos/workspace-sts/spring-boot-reto)
+2019-11-10 23:53:09.378  INFO 8228 --- [    Test worker] c.d.s.SpringBootRetoApplicationTests     : No active profile set, falling back to default profiles: default
+2019-11-10 23:53:11.326  INFO 8228 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-11-10 23:53:11.447  INFO 8228 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 104ms. Found 1 repository interfaces.
+2019-11-10 23:53:12.364  INFO 8228 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-11-10 23:53:12.829  INFO 8228 --- [    Test worker] o.f.c.internal.license.VersionPrinter    : Flyway Community Edition 6.0.8 by Redgate
+2019-11-10 23:53:12.840  INFO 8228 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-11-10 23:53:12.968 ERROR 8228 --- [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Exception during pool initialization.
 
-org.postgresql.util.PSQLException: El intento de conexión falló.
-	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:292) ~[postgresql-42.2.8.jar:42.2.8]
+org.postgresql.util.PSQLException: Connection to localhost:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:280) ~[postgresql-42.2.8.jar:42.2.8]
 	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:49) ~[postgresql-42.2.8.jar:42.2.8]
 	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:195) ~[postgresql-42.2.8.jar:42.2.8]
 	at org.postgresql.Driver.makeConnection(Driver.java:458) ~[postgresql-42.2.8.jar:42.2.8]
@@ -317,8 +320,11 @@ org.postgresql.util.PSQLException: El intento de conexión falló.
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) ~[na:1.8.0_222]
 	at org.gradle.internal.concurrent.ThreadFactoryImpl$ManagedThreadRunnable.run(ThreadFactoryImpl.java:55) ~[na:na]
 	at java.lang.Thread.run(Thread.java:748) ~[na:1.8.0_222]
-Caused by: java.net.UnknownHostException: postgres-docker
-	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:184) ~[na:1.8.0_222]
+Caused by: java.net.ConnectException: Conexión rehusada (Connection refused)
+	at java.net.PlainSocketImpl.socketConnect(Native Method) ~[na:1.8.0_222]
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350) ~[na:1.8.0_222]
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206) ~[na:1.8.0_222]
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188) ~[na:1.8.0_222]
 	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392) ~[na:1.8.0_222]
 	at java.net.Socket.connect(Socket.java:589) ~[na:1.8.0_222]
 	at org.postgresql.core.PGStream.<init>(PGStream.java:75) ~[postgresql-42.2.8.jar:42.2.8]
@@ -326,24 +332,24 @@ Caused by: java.net.UnknownHostException: postgres-docker
 	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:192) ~[postgresql-42.2.8.jar:42.2.8]
 	... 123 common frames omitted
 
-2019-11-10 14:08:36.322  WARN 29350 --- [    Test worker] o.s.w.c.s.GenericWebApplicationContext   : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Invocation of init method failed; nested exception is org.flywaydb.core.internal.exception.FlywaySqlException: 
-Unable to obtain connection from database: El intento de conexión falló.
-------------------------------------------------------------------------
+2019-11-10 23:53:12.993  WARN 8228 --- [    Test worker] o.s.w.c.s.GenericWebApplicationContext   : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Invocation of init method failed; nested exception is org.flywaydb.core.internal.exception.FlywaySqlException: 
+Unable to obtain connection from database: Connection to localhost:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 SQL State  : 08001
 Error Code : 0
-Message    : El intento de conexión falló.
+Message    : Connection to localhost:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
 
-2019-11-10 14:08:36.351  INFO 29350 --- [    Test worker] ConditionEvaluationReportLoggingListener : 
+2019-11-10 23:53:13.023  INFO 8228 --- [    Test worker] ConditionEvaluationReportLoggingListener : 
 
 Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
-2019-11-10 14:08:36.368 ERROR 29350 --- [    Test worker] o.s.boot.SpringApplication               : Application run failed
+2019-11-10 23:53:13.054 ERROR 8228 --- [    Test worker] o.s.boot.SpringApplication               : Application run failed
 
 org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Invocation of init method failed; nested exception is org.flywaydb.core.internal.exception.FlywaySqlException: 
-Unable to obtain connection from database: El intento de conexión falló.
-------------------------------------------------------------------------
+Unable to obtain connection from database: Connection to localhost:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 SQL State  : 08001
 Error Code : 0
-Message    : El intento de conexión falló.
+Message    : Connection to localhost:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
 
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1803) ~[spring-beans-5.2.1.RELEASE.jar:5.2.1.RELEASE]
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:595) ~[spring-beans-5.2.1.RELEASE.jar:5.2.1.RELEASE]
@@ -452,11 +458,11 @@ Message    : El intento de conexión falló.
 	at org.gradle.internal.concurrent.ThreadFactoryImpl$ManagedThreadRunnable.run(ThreadFactoryImpl.java:55) ~[na:na]
 	at java.lang.Thread.run(Thread.java:748) ~[na:1.8.0_222]
 Caused by: org.flywaydb.core.internal.exception.FlywaySqlException: 
-Unable to obtain connection from database: El intento de conexión falló.
-------------------------------------------------------------------------
+Unable to obtain connection from database: Connection to localhost:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 SQL State  : 08001
 Error Code : 0
-Message    : El intento de conexión falló.
+Message    : Connection to localhost:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
 
 	at org.flywaydb.core.internal.jdbc.JdbcUtils.openConnection(JdbcUtils.java:60) ~[flyway-core-6.0.8.jar:na]
 	at org.flywaydb.core.internal.jdbc.JdbcConnectionFactory.<init>(JdbcConnectionFactory.java:80) ~[flyway-core-6.0.8.jar:na]
@@ -466,8 +472,8 @@ Message    : El intento de conexión falló.
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1862) ~[spring-beans-5.2.1.RELEASE.jar:5.2.1.RELEASE]
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1799) ~[spring-beans-5.2.1.RELEASE.jar:5.2.1.RELEASE]
 	... 105 common frames omitted
-Caused by: org.postgresql.util.PSQLException: El intento de conexión falló.
-	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:292) ~[postgresql-42.2.8.jar:42.2.8]
+Caused by: org.postgresql.util.PSQLException: Connection to localhost:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:280) ~[postgresql-42.2.8.jar:42.2.8]
 	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:49) ~[postgresql-42.2.8.jar:42.2.8]
 	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:195) ~[postgresql-42.2.8.jar:42.2.8]
 	at org.postgresql.Driver.makeConnection(Driver.java:458) ~[postgresql-42.2.8.jar:42.2.8]
@@ -481,8 +487,11 @@ Caused by: org.postgresql.util.PSQLException: El intento de conexión falló.
 	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112) ~[HikariCP-3.4.1.jar:na]
 	at org.flywaydb.core.internal.jdbc.JdbcUtils.openConnection(JdbcUtils.java:56) ~[flyway-core-6.0.8.jar:na]
 	... 111 common frames omitted
-Caused by: java.net.UnknownHostException: postgres-docker
-	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:184) ~[na:1.8.0_222]
+Caused by: java.net.ConnectException: Conexión rehusada (Connection refused)
+	at java.net.PlainSocketImpl.socketConnect(Native Method) ~[na:1.8.0_222]
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350) ~[na:1.8.0_222]
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206) ~[na:1.8.0_222]
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188) ~[na:1.8.0_222]
 	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392) ~[na:1.8.0_222]
 	at java.net.Socket.connect(Socket.java:589) ~[na:1.8.0_222]
 	at org.postgresql.core.PGStream.<init>(PGStream.java:75) ~[postgresql-42.2.8.jar:42.2.8]
@@ -490,7 +499,7 @@ Caused by: java.net.UnknownHostException: postgres-docker
 	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:192) ~[postgresql-42.2.8.jar:42.2.8]
 	... 123 common frames omitted
 
-2019-11-10 14:08:36.389 ERROR 29350 --- [    Test worker] o.s.test.context.TestContextManager      : Caught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@415698e8] to prepare test instance [com.devhoss.springbootreto.SpringBootRetoApplicationTests@6e9f9ee0]
+2019-11-10 23:53:13.082 ERROR 8228 --- [    Test worker] o.s.test.context.TestContextManager      : Caught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@5144c2bc] to prepare test instance [com.devhoss.springbootreto.SpringBootRetoApplicationTests@1a817706]
 
 java.lang.IllegalStateException: Failed to load ApplicationContext
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:132) ~[spring-test-5.2.1.RELEASE.jar:5.2.1.RELEASE]
@@ -583,11 +592,11 @@ java.lang.IllegalStateException: Failed to load ApplicationContext
 	at org.gradle.internal.concurrent.ThreadFactoryImpl$ManagedThreadRunnable.run(ThreadFactoryImpl.java:55) ~[na:na]
 	at java.lang.Thread.run(Thread.java:748) ~[na:1.8.0_222]
 Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Invocation of init method failed; nested exception is org.flywaydb.core.internal.exception.FlywaySqlException: 
-Unable to obtain connection from database: El intento de conexión falló.
-------------------------------------------------------------------------
+Unable to obtain connection from database: Connection to localhost:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 SQL State  : 08001
 Error Code : 0
-Message    : El intento de conexión falló.
+Message    : Connection to localhost:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
 
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1803) ~[spring-beans-5.2.1.RELEASE.jar:5.2.1.RELEASE]
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:595) ~[spring-beans-5.2.1.RELEASE.jar:5.2.1.RELEASE]
@@ -609,11 +618,11 @@ Message    : El intento de conexión falló.
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:124) ~[spring-test-5.2.1.RELEASE.jar:5.2.1.RELEASE]
 	... 88 common frames omitted
 Caused by: org.flywaydb.core.internal.exception.FlywaySqlException: 
-Unable to obtain connection from database: El intento de conexión falló.
-------------------------------------------------------------------------
+Unable to obtain connection from database: Connection to localhost:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 SQL State  : 08001
 Error Code : 0
-Message    : El intento de conexión falló.
+Message    : Connection to localhost:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
 
 	at org.flywaydb.core.internal.jdbc.JdbcUtils.openConnection(JdbcUtils.java:60) ~[flyway-core-6.0.8.jar:na]
 	at org.flywaydb.core.internal.jdbc.JdbcConnectionFactory.<init>(JdbcConnectionFactory.java:80) ~[flyway-core-6.0.8.jar:na]
@@ -623,8 +632,8 @@ Message    : El intento de conexión falló.
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1862) ~[spring-beans-5.2.1.RELEASE.jar:5.2.1.RELEASE]
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1799) ~[spring-beans-5.2.1.RELEASE.jar:5.2.1.RELEASE]
 	... 105 common frames omitted
-Caused by: org.postgresql.util.PSQLException: El intento de conexión falló.
-	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:292) ~[postgresql-42.2.8.jar:42.2.8]
+Caused by: org.postgresql.util.PSQLException: Connection to localhost:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:280) ~[postgresql-42.2.8.jar:42.2.8]
 	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:49) ~[postgresql-42.2.8.jar:42.2.8]
 	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:195) ~[postgresql-42.2.8.jar:42.2.8]
 	at org.postgresql.Driver.makeConnection(Driver.java:458) ~[postgresql-42.2.8.jar:42.2.8]
@@ -638,8 +647,11 @@ Caused by: org.postgresql.util.PSQLException: El intento de conexión falló.
 	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112) ~[HikariCP-3.4.1.jar:na]
 	at org.flywaydb.core.internal.jdbc.JdbcUtils.openConnection(JdbcUtils.java:56) ~[flyway-core-6.0.8.jar:na]
 	... 111 common frames omitted
-Caused by: java.net.UnknownHostException: postgres-docker
-	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:184) ~[na:1.8.0_222]
+Caused by: java.net.ConnectException: Conexión rehusada (Connection refused)
+	at java.net.PlainSocketImpl.socketConnect(Native Method) ~[na:1.8.0_222]
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350) ~[na:1.8.0_222]
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206) ~[na:1.8.0_222]
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188) ~[na:1.8.0_222]
 	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392) ~[na:1.8.0_222]
 	at java.net.Socket.connect(Socket.java:589) ~[na:1.8.0_222]
 	at org.postgresql.core.PGStream.<init>(PGStream.java:75) ~[postgresql-42.2.8.jar:42.2.8]
