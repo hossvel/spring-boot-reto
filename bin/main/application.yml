@@ -5,4 +5,4 @@ spring:
     driver-class-name: org.postgresql.Driver
     username: postgres
     password: postgres
-    url: jdbc:postgresql://localhost:5432/otro
+    url: jdbc:postgresql://localhost:5432/reto

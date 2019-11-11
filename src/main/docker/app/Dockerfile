@@ -1,9 +1,8 @@
-FROM openjdk:8u151-slim
+FROM openjdk:8-jdk-alpine
 
 EXPOSE 8081
 
-ADD spring-boot-reto-0.0.1-SNAPSHOT.jar /spring-boot-reto-0.0.1-SNAPSHOT.jar
-#./build/libs/* ./spring-boot-reto-0.0.1-SNAPSHOT.jar
+ADD spring-boot-reto.jar /spring-boot-reto.jar
 
 ADD wait-for-it.sh /wait-for-it.sh
 ADD start.sh /start.sh

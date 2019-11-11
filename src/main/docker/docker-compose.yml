@@ -1,20 +1,20 @@
-version: '2' 
+version: '2'
 services:
   app:
     build: app
     environment:
       # se sobrescribe la configuración para que apunte al contenedor, los
-      # hostnames se agregan automáticamente en /etc/hosts de cada contenedor 
+      # hostnames se agregan automáticamente en /etc/hosts de cada contenedor
       - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/c7_data
     ports:
-      - "80${PORT}:8080"
+      - "80${PORT}:8081"
     depends_on:
       - postgres
   postgres:
     build: postgres
     environment:
       # le cambiamos el password al usuario de postgres
-      - POSTGRES_PASSWORD=secret
+      - POSTGRES_PASSWORD=root
     ports:
       - "54${PORT}:5432"
     volumes:

@@ -1,12 +1,8 @@
+server:
+  port: 8081
 spring:
   datasource:
     driver-class-name: org.postgresql.Driver
-    username: c7
-    password: c7
+    username: root
+    password: root
     url: jdbc:postgresql://localhost:5432/c7_data
-
-#============ Modo largo para configuracion =============
-#spring.datasource.driver-class-name: org.postgresql.Driver
-#spring.datasource.username: cacti
-#spring.datasource.password: cacti
-#spring.datasource.url: jdbc:postgresql://localhost:5432/cacti_data

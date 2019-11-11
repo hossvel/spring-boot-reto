@@ -8,14 +8,12 @@ else
 fi
 
 
-file="./build/libs/spring-boot-reto-0.0.1-SNAPSHOT.jar"
-#./build/libs/* ./spring-boot-reto-0.0.1-SNAPSHOT.jar
-
+file="../build/libs/spring-boot-reto.jar"
 if [ -f "$file" ]
 then
   echo "$file found."
 else
-  ./gradlew bootRepackage && cp build/libs/./build/libs/* ./spring-boot-reto-0.0.1-SNAPSHOT.jar src/main/docker/app/./build/libs/* ./spring-boot-reto-0.0.1-SNAPSHOT.jar
+  ./gradlew bootJar && cp build/libs/spring-boot-reto.jar src/main/docker/app/spring-boot-reto.jar
 fi
 
 cd src/main/docker && docker-compose -p app_${PORT} up --build 
