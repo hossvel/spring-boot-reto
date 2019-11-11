@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 import com.devhoss.model.Cliente;
+import com.devhoss.model.ClienteDetalle;
 import com.devhoss.model.ClienteKpi;
 import com.devhoss.service.IClienteService;
 
@@ -45,8 +46,8 @@ public class ClienteController {
 	}
 
 	@GetMapping("/listclientes")
-	public ResponseEntity<ClienteKpi> listClientes() {
-		return ResponseEntity.ok(iClienteService.kpIdeClientes());
+	public ResponseEntity<List<ClienteDetalle>> listClientes() {
+		return ResponseEntity.ok(iClienteService.listClientes());
 	}
 	
 	

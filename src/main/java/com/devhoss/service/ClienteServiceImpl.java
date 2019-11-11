@@ -7,16 +7,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.devhoss.model.Cliente;
+import com.devhoss.model.ClienteDetalle;
 import com.devhoss.model.ClienteKpi;
 import com.devhoss.repository.IClienteRepository;
 import com.devhoss.utils.Utils;
+import org.modelmapper.ModelMapper;
 
 @Service
-
 public class ClienteServiceImpl implements IClienteService {
 
 	@Autowired
 	private IClienteRepository iClienteRepository;
+
+	@Autowired
+	private ModelMapper modelMapper;
 
 	public List<Cliente> FindAll() {
 		return iClienteRepository.findAll();
@@ -46,4 +50,19 @@ public class ClienteServiceImpl implements IClienteService {
 		};
 		return respuesta;
 	}
+	public List<ClienteDetalle> listClientes() {
+		List<Cliente> clientes = iClienteRepository.findAll();
+		List<ClienteDetalle> clientesDetalle = clientes.stream()
+				.map(cliente -> convertToClienteDetaille(cliente))
+				.collect(Collectors.toList());
+
+		clientesDetalle.stream().forEach(u -> u.setFechaProbableMuerte(Utils.fechaProbableMuerte()));
+		return clientesDetalle;
+	}
+
+	private ClienteDetalle convertToClienteDetaille(Cliente cliente) {
+		ClienteDetalle clienteDetailsDto = modelMapper.map(cliente, ClienteDetalle.class);
+		return clienteDetailsDto;
+	}
+
 }

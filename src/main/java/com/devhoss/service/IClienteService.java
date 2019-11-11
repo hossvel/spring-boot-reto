@@ -1,5 +1,6 @@
 package com.devhoss.service;
 import com.devhoss.model.Cliente;
+import com.devhoss.model.ClienteDetalle;
 import com.devhoss.model.ClienteKpi;
 
 import java.util.List;
@@ -15,5 +16,7 @@ public interface IClienteService {
 	public Cliente Save(Cliente persona);
 	
 	public ClienteKpi kpIdeClientes();
+	
+	public List<ClienteDetalle> listClientes();
 	
 }
